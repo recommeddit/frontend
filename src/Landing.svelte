@@ -4,9 +4,24 @@
   const dispatch = createEventDispatcher();
 
   let query = "";
+  let suggestions = []
 
   const handleClick = () => {
     dispatch('search', query);
+  }
+
+  const handleSuggest = async () =>{
+    query = query.trim()
+    if(query.length>0){
+      console.log(query)
+      const res = await fetch("https://us-central1-recommeddit.cloudfunctions.net/auto_suggest?"
+      + new URLSearchParams({query}));
+      const parsedRes = await res.json();
+      console.log(parsedRes)
+      suggestions = parsedRes.suggest;
+    }else{
+      suggestions = []
+    }
   }
 
 </script>
@@ -68,10 +83,11 @@
                         on:submit|preventDefault={handleClick}>
                     <div class="sm:flex">
                       <div class="min-w-0 flex-1">
-                        <label class="sr-only" for="search">Search</label>
+                        <label class="sr-only" for="search">Searching</label>
                         <input
+                          autocomplete="off"
                           bind:value={query}
-                          autocomplete="auto"
+                          on:input={handleSuggest}
                           class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
                           id="search"
                           placeholder="best movies to watch after ..."
@@ -87,6 +103,16 @@
                       </div>
                     </div>
                   </form>
+                  <div>
+                  <ul class="divide-y divide-gray-100 mt-2">
+                    {#each suggestions as result}
+                    <li class="py-2 flex bg-white">
+                      <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-500">{result}</p>
+                      </div>
+                    </li>
+                    {/each}
+                  </ul>
                 </div>
               </div>
             </div>

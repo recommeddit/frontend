@@ -115,7 +115,6 @@
         <a
           class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
           href="#">Settings</a>
-
         <a
           class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
           href="#">Sign
