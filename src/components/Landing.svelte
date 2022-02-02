@@ -11,23 +11,28 @@
   }
 
   const handleSuggest = async () =>{
-    query = query.trim()
+    query = query.trimStart()
     if(query.length>0){
-      console.log(query)
       const res = await fetch("https://us-central1-recommeddit.cloudfunctions.net/auto_suggest?"
       + new URLSearchParams({query}));
       const parsedRes = await res.json();
-      console.log(parsedRes)
       suggestions = parsedRes.suggest;
     }else{
       suggestions = []
     }
   }
 
+  const handleChange = (result) =>{
+    document.getElementById("search").focus();
+    query = result.replace(/<[^>]*>?/gm, '')
+    suggestions=[]
+  }
+
+
 </script>
 
 <div class="bg-white">
-  <div class="relative overflow-hidden">
+  <div class="relative">
     <header class="relative">
       <div class="bg-gray-900 pt-6">
         <nav aria-label="Global"
@@ -61,18 +66,21 @@
         </nav>
       </div>
     </header>
-    <main class="pt-16 bg-gray-900">
+    <main class="bg-gray-900">
       <div class="bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden h-screen">
         <div class="mx-auto max-w-7xl lg:px-8">
           <div class="lg:grid lg:grid-cols-2 lg:gap-8">
             <div
               class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
-              <div class="lg:py-24">
+              <div class="lg:py-10">
                 <h1
                   class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                   <span class="block">A better way to</span>
-                  <span
-                    class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">discover movies</span>
+                  <div class="pb-3 bg-clip-text bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
+                    <span class="block">
+                    discover movies
+                    </span>
+                  </div>
                 </h1>
                 <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
                   Our AI-powered recommendation algorithm will search and aggregate top
@@ -88,6 +96,7 @@
                           autocomplete="off"
                           bind:value={query}
                           on:input={handleSuggest}
+                          on:blur={(e)=>console.log(e)}
                           class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
                           id="search"
                           placeholder="best movies to watch after ..."
@@ -105,10 +114,10 @@
                   </form>
                   <div>
                   <ul class="divide-y divide-gray-100 mt-2">
-                    {#each suggestions as result}
-                    <li class="py-2 flex bg-white">
+                    {#each suggestions as suggest}
+                    <li class="py-2 flex bg-gray-900 hover:bg-gray-800" on:click={()=>handleChange(suggest)}>
                       <div class="ml-4">
-                        <p class="text-sm font-medium text-gray-500">{result}</p>
+                        <p class="text-sm font-medium text-gray-100 cursor-default">{@html suggest}</p>
                       </div>
                     </li>
                     {/each}
