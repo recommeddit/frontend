@@ -76,11 +76,9 @@
                 <h1
                   class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                   <span class="block">A better way to</span>
-                  <div class="pb-3 bg-clip-text bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
-                    <span class="block">
+                  <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
                     discover movies
-                    </span>
-                  </div>
+                  </span>
                 </h1>
                 <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
                   Our AI-powered recommendation algorithm will search and aggregate top
