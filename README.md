@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/18465f10-6391-40e7-8171-5bc58d3fccc2/deploy-status)](https://app.netlify.com/sites/recommeddit/deploys)
+![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=recommeddit)
 
 # Recommenddit frontend
 
