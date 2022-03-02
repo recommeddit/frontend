@@ -1,6 +1,7 @@
 <script lang="ts">
   import {createEventDispatcher} from 'svelte';
-
+  import Typewriter from 'svelte-typewriter';
+  
   const dispatch = createEventDispatcher();
 
   let query = "";
@@ -16,7 +17,7 @@
       const res = await fetch("https://us-central1-recommeddit.cloudfunctions.net/auto_suggest?"
       + new URLSearchParams({query}));
       const parsedRes = await res.json();
-      suggestions = parsedRes.suggest;
+      suggestions = parsedRes.suggest.slice(0, parsedRes.suggest.length-2);
     }else{
       suggestions = []
     }
@@ -77,7 +78,15 @@
                   class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                   <span class="block">A better way to</span>
                   <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
-                    discover movies
+                    <div style="display:flex"> discover <div class="ml-4"><Typewriter loop interval={150}>
+                      <p>movies</p> 
+                      <p>books</p> 
+                      <p>games</p>
+                      <p>music</p>
+                      <p>shows</p>
+                      <p>food</p> 
+                    </Typewriter></div>
+                    </div>
                   </span>
                 </h1>
                 <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
@@ -123,18 +132,24 @@
                 </div>
               </div>
             </div>
-            <div class="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
-              <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
-                <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
-                <img
-                  alt=""
-                  class="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                  src="/assets/background.svg">
-              </div>
+          </div>
+          <div class="mt-20 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
+            <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+              <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
+              <img
+                alt=""
+                style="width: 700px; height: 550px"
+                class="lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                src="/assets/background.svg">
             </div>
           </div>
         </div>
       </div>
     </main>
+    <footer class="relative bottom-24 text-center text-gray-300 bg-gray-900 font-thin mb-50 hover:underline">
+      <a href="https://serpapi.com/" class = "cursor: pointer">
+        Powered by SerpApi
+      </a>
+    </footer>
   </div>
 </div>
