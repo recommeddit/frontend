@@ -1,7 +1,7 @@
 {
-  "name": "create-tailwindkit-ts",
+  "name": "recommeddit-frontend",
   "version": "0.3.0",
-  "description": "A Sveltekit starter project with Typescript and Latest version of Tailwind pre-configured",
+  "description": "Frontend for recommeddit",
   "bin": "./bin/cli.cjs",
   "scripts": {
     "dev": "svelte-kit dev",
@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/Brisklemonade/sveltekit-typescript-tailwindcss-template"
   },
-  "author": "Kamell Perry",
+  "author": "Recommeddit team",
   "license": "MIT",
   "devDependencies": {
     "@sveltejs/adapter-static": "^1.0.0-next.26",
