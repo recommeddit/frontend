@@ -90,8 +90,7 @@
                   </span>
                 </h1>
                 <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                  Our AI-powered recommendation algorithm will search and aggregate top
-                  movie recommendations from Reddit
+                  Our AI-powered recommendation algorithm will search and aggregate top recommendations from Reddit
                 </p>
                 <div class="mt-10 sm:mt-12">
                   <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0"
