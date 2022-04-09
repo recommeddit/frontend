@@ -68,7 +68,7 @@
       </div>
     </header>
     <main class="bg-gray-900">
-      <div class="bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden h-screen">
+      <div class="bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden h-screen" style=" padding-bottom: 0px; height: 702px;">
         <div class="mx-auto max-w-7xl lg:px-8">
           <div class="lg:grid lg:grid-cols-2 lg:gap-8">
             <div
@@ -85,12 +85,13 @@
                       <p>music</p>
                       <p>shows</p>
                       <p>food</p> 
+                      <p>anything</p> 
                     </Typewriter></div>
                     </div>
                   </span>
                 </h1>
                 <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                  Our AI-powered recommendation algorithm will search and aggregate top recommendations from Reddit
+                  Our AI-powered recommendation algorithm will search and aggregate the best recommendations from Reddit
                 </p>
                 <div class="mt-10 sm:mt-12">
                   <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0"
@@ -145,7 +146,7 @@
         </div>
       </div>
     </main>
-    <footer class="relative bottom-24 text-center text-gray-300 bg-gray-900 font-thin mb-50 hover:underline">
+    <footer class="text-center text-gray-300 bg-gray-900 font-thin hover:underline">
       <a href="https://serpapi.com/" class = "cursor: pointer">
         Powered by SerpApi
       </a>

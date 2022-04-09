@@ -41,6 +41,8 @@
   },
   "type": "module",
   "dependencies": {
-    "svelte-loading-spinners": "^0.1.7"
+    "@tailwindcss/line-clamp": "^0.3.1",
+    "svelte-loading-spinners": "^0.1.7",
+    "tw-elements": "^1.0.0-alpha12"
   }
 }
