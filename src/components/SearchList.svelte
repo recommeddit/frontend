@@ -79,13 +79,22 @@
         class="rounded overflow-hidden shadow-lg"
         in:fly={{ y: 100, duration: 1000 }}
       >
-        <div class="flex gap-3">
+        <div class="flex gap-4">
           <div class="w-12 h-12 bg-gray-700">
             <p class="text-white text-xl font-thin text-center pt-2">
               {recommendation.score.toFixed(1)}
             </p>
           </div>
-          <p class="text-2xl pt-1">{recommendation.keyword}</p>
+          <p class="text-2xl pt-1 pr-10">{recommendation.keyword}</p>
+          <div class = "border-black border-2 text-center text-2xl pl-5 pr-5 pt-1">
+            <a href="http://www.amazon.com" class="flex">
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+              &nbsp; Check it out here!
+            </a>
+          </div>
         </div>
         <div
           id={recommendation.keyword.split(" ").join("")}
@@ -128,8 +137,15 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <div class="pl-10 pr-10 pb-8 grid grid-cols-2 gap-10"
-        >
+        <div class="text-center pb-8 grid grid-cols-1 justify-center">
+          <p class = "text-2xl">
+            Description:
+          </p>
+            <p class = "description">
+              {recommendation.description}
+            </p>
+        </div>
+        <div class="pl-10 pr-10 pb-8 grid grid-cols-2 gap-10">
           <Comments comments = {recommendation.comments}/>
         </div>
       </div>
@@ -149,5 +165,10 @@
     width: 100%;
     height: 100%;
     z-index: 9999;
+  }
+
+  .description{
+    padding-left: 200px;
+    padding-right: 200px;
   }
 </style>

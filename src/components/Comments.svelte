@@ -1,7 +1,7 @@
 <script>
     export let comments = [];
 
-    let current = 2;
+    let current = 4;
 </script>
 
 {#each comments.slice(0, current) as comment}
@@ -10,14 +10,15 @@
             <div class="mr-4 flex-shrink-0">
                 <div class="w-14 h-14 border-black border-2">
                     <img
-                        src="images/upvote.svg"
+                        src="https://www.transparentpng.com/thumb/up-arrow/Thwv9B-up-arrow-clipart-png-file.png"
                         alt="upvote"
-                        class="pl-4 pt-1 pr-4"
+                        class="pl-3 pr-3"
                     />
                     <p class="comment">{comment.score}</p>
                 </div>
             </div>
             <div>
+                <h4 class="text-lg font-bold">u/anonymuz123</h4>
                 <p class="mt-1">{comment.text}</p>
             </div>
         </div>
@@ -53,7 +54,7 @@
         width: 125px;
         height: 50px;
         text-align: center;
-        margin-left: 90%;
+        margin-left: 91.5%;
         border-radius: 15px;
     }
 

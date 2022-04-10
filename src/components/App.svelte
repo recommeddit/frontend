@@ -19,6 +19,7 @@
     recommendations = [
       {
         keyword: "Visual Studio Code",
+        description: "Visual Studio Code, also commonly referred to as VS Code, is a source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git.",
         score: 34.1399493999, // <- round to nearest 1 decimals
         imageUrls: ["https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?fit=crop&format=jpg&crop=4560,2565,x790,y784,safe", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lamborghini-sc18-alston-1542395842.jpg"],
         comments: [
@@ -56,6 +57,7 @@
       },
       {
         keyword: "PyCharm",
+        description: "PyCharm is an integrated development environment used in computer programming, specifically for the Python programming language. It is developed by the Czech company JetBrains.",
         score: 21.2324, // <- round to nearest 1 decimals
         imageUrls: ["https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?fit=crop&format=jpg&crop=4560,2565,x790,y784,safe", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lamborghini-sc18-alston-1542395842.jpg"],
         comments: [
@@ -93,6 +95,7 @@
       },
       {
         keyword: "Eclipse",
+        description: "Eclipse is an integrated development environment used in computer programming. It contains a base workspace and an extensible plug-in system for customizing the environment. It is the second-most-popular IDE for Java development, and, until 2016, was the most popular.",
         score: 19.345, // <- round to nearest 1 decimals
         imageUrls: ["https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?fit=crop&format=jpg&crop=4560,2565,x790,y784,safe", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-chevrolet-corvette-z06-1607016574.jpg?crop=0.737xw:0.738xh;0.181xw,0.218xh&resize=640:*", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lamborghini-sc18-alston-1542395842.jpg"],
         comments: [
