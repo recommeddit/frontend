@@ -6,6 +6,7 @@
 
   let isSearching = false;
   let isLoading = false;
+  let error = false;
   let recommendations = [];
 
   const handleSearch = async ({detail: query}) => {
@@ -14,6 +15,10 @@
     console.log(query);
     //const res = await fetch("https://us-central1-recommeddit.cloudfunctions.net/search?"
      // + new URLSearchParams({query}));
+    //if(!res.ok){
+      //error = true;
+      //return;
+    //}
     //const parsedRes = await res.json();
     //recommendations = parsedRes.recommendations;
     recommendations = [
@@ -143,7 +148,7 @@
 <Tailwindcss/>
 <ModeSwitcher/>
 {#if isSearching}
-  <SearchList {isLoading} {recommendations}/>
+  <SearchList {isLoading} {error} {recommendations}/>
 {:else}
   <Landing on:search={handleSearch}/>
 {/if}

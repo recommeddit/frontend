@@ -3,7 +3,12 @@ module.exports = {
 	purge: ['./src/**/*.svelte'],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
-		extend: "@tsconfig/svelte/tsconfig.json"
+		extend: "@tsconfig/svelte/tsconfig.json",
+		extend: {
+			maxHeight: {
+			  '144': '36rem',
+			}
+		}
 	},
 	variants: {
 		extend: {}

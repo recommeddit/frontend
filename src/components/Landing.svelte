@@ -80,11 +80,10 @@
                   <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
                     <div style="display:flex"> discover <div class="ml-4"><Typewriter loop interval={150}>
                       <p>movies</p> 
+                      <p>shows</p>
                       <p>books</p> 
                       <p>games</p>
                       <p>music</p>
-                      <p>shows</p>
-                      <p>food</p> 
                       <p>anything</p> 
                     </Typewriter></div>
                     </div>
@@ -120,7 +119,7 @@
                     </div>
                   </form>
                   <div>
-                  <ul class="divide-y divide-gray-100 mt-2">
+                  <ul class="suggest divide-y divide-gray-100 mt-2">
                     {#each suggestions as suggest}
                     <li class="py-2 flex bg-gray-900 hover:bg-gray-800" on:click={()=>handleChange(suggest)}>
                       <div class="ml-4">
@@ -153,3 +152,9 @@
     </footer>
   </div>
 </div>
+
+<style>
+  .suggest{
+    width: 82%;
+  }
+</style>

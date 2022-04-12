@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div>
-                <h4 class="text-lg font-bold">u/anonymuz123</h4>
+                <h4 class="text-lg font-bold hover:text-blue-600 hover:underline">u/anonymuz123</h4>
                 <p class="mt-1">{comment.text}</p>
             </div>
         </div>
@@ -36,7 +36,7 @@
 {:else}
     <button
         class="show"
-        on:click={() => (current = 2)}
+        on:click={() => (current = 4)}
         id="loadmore"
         type="button"
     >
