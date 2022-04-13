@@ -21,6 +21,7 @@
       return;
     }
     const parsedRes = await res.json();
+    console.log("parsedRes", parsedRes);
     recommendations = (parsedRes?.recommendations ?? []).map(({ recommendation, images, score, link, comments }) => {
       return {
         keyword: recommendation,
@@ -36,7 +37,6 @@
         link
       };
     });
-    error = true;
     isLoading = false;
   };
 </script>

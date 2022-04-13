@@ -16,7 +16,7 @@
     if (query.length > 0) {
       const res = await fetch("https://recommeddit.nrp-nautilus.io/suggest?"
         + new URLSearchParams({ query }));
-      const parsedRes = await res.json();
+      const parsedRes = (await res.json())[0];
       suggestions = parsedRes.suggest.slice(0, parsedRes.suggest.length - 2);
     } else {
       suggestions = [];
@@ -80,7 +80,7 @@
                   <span class="block">A better way to</span>
                   <span
                     class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
-                    <div style="display:flex"> discover <div class="ml-4"><Typewriter loop interval={150}>
+                    <div style="display:flex"> discover <div class="ml-4"><Typewriter interval={150} loop>
                       <p>movies</p>
                       <p>shows</p>
                       <p>books</p>
@@ -103,10 +103,10 @@
                         <input
                           autocomplete="off"
                           bind:value={query}
-                          on:input={handleSuggest}
-                          on:blur={(e)=>console.log(e)}
                           class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
                           id="search"
+                          on:blur={(e)=>console.log(e)}
+                          on:input={handleSuggest}
                           placeholder="best movies to watch after ..."
                           type="search"
                         >
@@ -139,16 +139,17 @@
                 <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
                 <img
                   alt=""
-                  style="width: 700px; height: 550px"
                   class="lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                  src="/assets/background.svg">
+                  src="/assets/background.svg"
+                  style="width: 700px; height: 550px">
               </div>
             </div>
           </div>
         </div>
+      </div>
     </main>
     <footer class="text-center text-gray-300 bg-gray-900 font-thin hover:underline">
-      <a href="https://serpapi.com/" class="cursor: pointer">
+      <a class="cursor: pointer" href="https://serpapi.com/">
         Powered by SerpApi
       </a>
     </footer>
