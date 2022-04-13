@@ -14,7 +14,7 @@
   const handleSuggest = async () => {
     query = query.trimStart();
     if (query.length > 0) {
-      const res = await fetch("https://us-central1-recommeddit.cloudfunctions.net/auto_suggest?"
+      const res = await fetch("https://recommeddit.nrp-nautilus.io/suggest?"
         + new URLSearchParams({ query }));
       const parsedRes = await res.json();
       suggestions = parsedRes.suggest.slice(0, parsedRes.suggest.length - 2);
