@@ -3,6 +3,7 @@
   import Tailwindcss from "./Tailwindcss.svelte";
   import Landing from "./Landing.svelte";
   import SearchList from "./SearchList.svelte";
+  import to from "await-to-js";
 
   let isSearching = false;
   let isLoading = false;
@@ -13,9 +14,9 @@
     isSearching = true;
     isLoading = true;
     console.log(query);
-    const res = await fetch("http://169.231.158.220:8000/search?"
-      + new URLSearchParams({ query }));
-    if (!res.ok) {
+    const [err, res] = await to(fetch("https://recommeddit.nrp-nautilus.io/search?"
+      + new URLSearchParams({ query })));
+    if (err || !res.ok) {
       error = true;
       return;
     }

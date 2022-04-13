@@ -8,6 +8,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^4.31.1
   '@typescript-eslint/parser': ^4.31.1
   autoprefixer: ^10.4.0
+  await-to-js: ^3.0.0
   eslint: ^7.32.0
   eslint-config-prettier: ^8.3.0
   eslint-plugin-svelte3: ^3.2.1
@@ -26,12 +27,13 @@ specifiers:
 
 dependencies:
   '@tailwindcss/line-clamp': 0.3.1_tailwindcss@3.0.18
+  await-to-js: 3.0.0
   svelte-loading-spinners: 0.1.7
   tw-elements: 1.0.0-alpha12_ef48b3b8837f8a23677bffe8f9cd866d
 
 devDependencies:
   '@sveltejs/adapter-static': 1.0.0-next.29
-  '@sveltejs/kit': 1.0.0-next.310_svelte@3.46.3
+  '@sveltejs/kit': 1.0.0-next.311_svelte@3.46.3
   '@tsconfig/svelte': 3.0.0
   '@typescript-eslint/eslint-plugin': 4.33.0_959502c0ea240e86d4d2ba8b8c0fee45
   '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.5.5
@@ -144,8 +146,8 @@ packages:
       tiny-glob: 0.2.9
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.310_svelte@3.46.3:
-    resolution: {integrity: sha512-pTyMyaoyHS+V5cQZIQMfQXmLkhw1VaRwT9avOSgwDc0QBpnNw2LdzwoPYsUr96ca5B6cfT3SMUNolxErTNHmPQ==}
+  /@sveltejs/kit/1.0.0-next.311_svelte@3.46.3:
+    resolution: {integrity: sha512-OkRIi0XBXcs16J+H+6fgOeFYxKu05gamY08KHAQ5cohjymUODGWIwaIfwAuNkZAcEEr8Vh2ejp4UcaxNzD53lQ==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -429,6 +431,11 @@ packages:
       postcss: 8.4.5
       postcss-value-parser: 4.2.0
     dev: true
+
+  /await-to-js/3.0.0:
+    resolution: {integrity: sha512-zJAaP9zxTcvTHRlejau3ZOY4V7SRpiByf3/dxx2uyKxxor19tpmpV2QRsTKikckwhaPmr2dVpxxMr7jOCYVp5g==}
+    engines: {node: '>=6.0.0'}
+    dev: false
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
