@@ -1,33 +1,33 @@
 <script lang="ts">
-  import {createEventDispatcher} from 'svelte';
-  import Typewriter from 'svelte-typewriter';
-  
+  import { createEventDispatcher } from "svelte";
+  import Typewriter from "svelte-typewriter";
+
   const dispatch = createEventDispatcher();
 
   let query = "";
-  let suggestions = []
+  let suggestions = [];
 
   const handleClick = () => {
-    dispatch('search', query);
-  }
+    dispatch("search", query);
+  };
 
-  const handleSuggest = async () =>{
-    query = query.trimStart()
-    if(query.length>0){
-      const res = await fetch("https://us-central1-recommeddit.cloudfunctions.net/auto_suggest?"
-      + new URLSearchParams({query}));
-      const parsedRes = await res.json();
-      suggestions = parsedRes.suggest.slice(0, parsedRes.suggest.length-2);
-    }else{
-      suggestions = []
+  const handleSuggest = async () => {
+    query = query.trimStart();
+    if (query.length > 0) {
+      const res = await fetch("https://recommeddit.nrp-nautilus.io/suggest?"
+        + new URLSearchParams({ query }));
+      const parsedRes = (await res.json())[0];
+      suggestions = parsedRes.suggest.slice(0, parsedRes.suggest.length - 2);
+    } else {
+      suggestions = [];
     }
-  }
+  };
 
-  const handleChange = (result) =>{
+  const handleChange = (result) => {
     document.getElementById("search").focus();
-    query = result.replace(/<[^>]*>?/gm, '')
-    suggestions=[]
-  }
+    query = result.replace(/<[^>]*>?/gm, "");
+    suggestions = [];
+  };
 
 
 </script>
@@ -54,7 +54,7 @@
                   <svg aria-hidden="true" class="h-6 w-6" fill="none"
                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2"/>
+                          stroke-width="2" />
                   </svg>
                 </button>
               </div>
@@ -68,7 +68,8 @@
       </div>
     </header>
     <main class="bg-gray-900">
-      <div class="bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden h-screen" style=" padding-bottom: 0px; height: 702px;">
+      <div class="bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden h-screen"
+           style=" padding-bottom: 0px; height: 90.8vh;">
         <div class="mx-auto max-w-7xl lg:px-8">
           <div class="lg:grid lg:grid-cols-2 lg:gap-8">
             <div
@@ -77,14 +78,15 @@
                 <h1
                   class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                   <span class="block">A better way to</span>
-                  <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
-                    <div style="display:flex"> discover <div class="ml-4"><Typewriter loop interval={150}>
-                      <p>movies</p> 
+                  <span
+                    class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5">
+                    <div style="display:flex"> discover <div class="ml-4"><Typewriter interval={150} loop>
+                      <p>movies</p>
                       <p>shows</p>
-                      <p>books</p> 
+                      <p>books</p>
                       <p>games</p>
                       <p>music</p>
-                      <p>anything</p> 
+                      <p>anything</p>
                     </Typewriter></div>
                     </div>
                   </span>
@@ -101,10 +103,10 @@
                         <input
                           autocomplete="off"
                           bind:value={query}
-                          on:input={handleSuggest}
-                          on:blur={(e)=>console.log(e)}
                           class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
                           id="search"
+                          on:blur={(e)=>console.log(e)}
+                          on:input={handleSuggest}
                           placeholder="best movies to watch after ..."
                           type="search"
                         >
@@ -119,34 +121,35 @@
                     </div>
                   </form>
                   <div>
-                  <ul class="suggest divide-y divide-gray-100 mt-2">
-                    {#each suggestions as suggest}
-                    <li class="py-2 flex bg-gray-900 hover:bg-gray-800" on:click={()=>handleChange(suggest)}>
-                      <div class="ml-4">
-                        <p class="text-sm font-medium text-gray-100 cursor-default">{@html suggest}</p>
-                      </div>
-                    </li>
-                    {/each}
-                  </ul>
+                    <ul class="suggest divide-y divide-gray-100 mt-2">
+                      {#each suggestions as suggest}
+                        <li class="py-2 flex bg-gray-900 hover:bg-gray-800" on:click={()=>handleChange(suggest)}>
+                          <div class="ml-4">
+                            <p class="text-sm font-medium text-gray-100 cursor-default">{@html suggest}</p>
+                          </div>
+                        </li>
+                      {/each}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="mt-20 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
-            <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
-              <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
-              <img
-                alt=""
-                style="width: 700px; height: 550px"
-                class="lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                src="/assets/background.svg">
+            <div class="mt-20 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
+              <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+                <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
+                <img
+                  alt=""
+                  class="lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                  src="/assets/background.svg"
+                  style="width: 700px; height: 550px">
+              </div>
             </div>
           </div>
         </div>
       </div>
     </main>
     <footer class="text-center text-gray-300 bg-gray-900 font-thin hover:underline">
-      <a href="https://serpapi.com/" class = "cursor: pointer">
+      <a class="cursor: pointer" href="https://serpapi.com/">
         Powered by SerpApi
       </a>
     </footer>
@@ -154,7 +157,7 @@
 </div>
 
 <style>
-  .suggest{
-    width: 82%;
-  }
+    .suggest {
+        width: 82%;
+    }
 </style>

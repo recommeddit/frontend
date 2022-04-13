@@ -42,6 +42,7 @@
   "type": "module",
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.3.1",
+    "await-to-js": "^3.0.0",
     "svelte-loading-spinners": "^0.1.7",
     "tw-elements": "^1.0.0-alpha12"
   }
