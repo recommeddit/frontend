@@ -10,15 +10,15 @@
             <div class="mr-4 flex-shrink-0">
                 <div class="w-14 h-14 border-black border-2">
                     <img
-                        src="https://www.transparentpng.com/thumb/up-arrow/Thwv9B-up-arrow-clipart-png-file.png"
-                        alt="upvote"
-                        class="pl-3 pr-3"
+                      src="https://www.transparentpng.com/thumb/up-arrow/Thwv9B-up-arrow-clipart-png-file.png"
+                      alt="upvote"
+                      class="pl-3 pr-3"
                     />
                     <p class="comment">{comment.score}</p>
                 </div>
             </div>
             <div>
-                <h4 class="text-lg font-bold hover:text-blue-600 hover:underline">u/anonymuz123</h4>
+                <h4 class="text-lg font-bold hover:text-blue-600 hover:underline">{comment.authorName}</h4>
                 <p class="mt-1">{comment.text}</p>
             </div>
         </div>
@@ -26,26 +26,26 @@
 {/each}
 {#if current < comments.length}
     <button
-        class="show"
-        on:click={() => (current = comments.length)}
-        id="loadmore"
-        type="button"
+      class="show"
+      on:click={() => (current = comments.length)}
+      id="loadmore"
+      type="button"
     >
         Show More
     </button>
 {:else}
     <button
-        class="show"
-        on:click={() => (current = 4)}
-        id="loadmore"
-        type="button"
+      class="show"
+      on:click={() => (current = 4)}
+      id="loadmore"
+      type="button"
     >
         Show Less
     </button>
 {/if}
 
 <style>
-    .show{
+    .show {
         background-color: rgb(55 65 81);
         color: white;
         font-size: 1.25rem;
@@ -58,7 +58,7 @@
         border-radius: 15px;
     }
 
-    .comment{
+    .comment {
         font-size: 1.25rem; /* 20px */
         line-height: 1.75rem;
         text-align: center;
