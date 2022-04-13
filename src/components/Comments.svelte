@@ -1,47 +1,47 @@
 <script>
-    export let comments = [];
+  export let comments = [];
 
-    let current = 4;
+  let current = 4;
 </script>
 
 {#each comments.slice(0, current) as comment}
-    <a href={comment.url}>
-        <div class="flex">
-            <div class="mr-4 flex-shrink-0">
-                <div class="w-14 h-14 border-black border-2">
-                    <img
-                      src="https://www.transparentpng.com/thumb/up-arrow/Thwv9B-up-arrow-clipart-png-file.png"
-                      alt="upvote"
-                      class="pl-3 pr-3"
-                    />
-                    <p class="comment">{comment.score}</p>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-lg font-bold hover:text-blue-600 hover:underline">{comment.authorName}</h4>
-                <p class="mt-1">{comment.text}</p>
-            </div>
+  <a href={"https://" + comment.url} target="_blank" rel="noopener noreferrer">
+    <div class="flex">
+      <div class="mr-4 flex-shrink-0">
+        <div class="w-14 h-14 border-black border-2">
+          <img
+            src="https://www.transparentpng.com/thumb/up-arrow/Thwv9B-up-arrow-clipart-png-file.png"
+            alt="upvote"
+            class="pl-3 pr-3"
+          />
+          <p class="comment">{comment.score}</p>
         </div>
-    </a>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold hover:text-blue-600 hover:underline">{comment.authorName}</h4>
+        <p class="mt-1">{comment.text}</p>
+      </div>
+    </div>
+  </a>
 {/each}
 {#if current < comments.length}
-    <button
-      class="show"
-      on:click={() => (current = comments.length)}
-      id="loadmore"
-      type="button"
-    >
-        Show More
-    </button>
+  <button
+    class="show"
+    on:click={() => (current = comments.length)}
+    id="loadmore"
+    type="button"
+  >
+    Show More
+  </button>
 {:else}
-    <button
-      class="show"
-      on:click={() => (current = 4)}
-      id="loadmore"
-      type="button"
-    >
-        Show Less
-    </button>
+  <button
+    class="show"
+    on:click={() => (current = 4)}
+    id="loadmore"
+    type="button"
+  >
+    Show Less
+  </button>
 {/if}
 
 <style>
