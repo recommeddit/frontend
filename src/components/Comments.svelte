@@ -5,7 +5,7 @@
 </script>
 
 {#each comments.slice(0, current) as comment}
-    <a href={comment.url}>
+    <a href={`https://${comment.permalink}`}>
         <div class="flex">
             <div class="mr-4 flex-shrink-0">
                 <div class="w-14 h-14 border-black border-2">
@@ -18,13 +18,13 @@
                 </div>
             </div>
             <div>
-                <h4 class="text-lg font-bold hover:text-blue-600 hover:underline">u/anonymuz123</h4>
-                <p class="mt-1">{comment.text}</p>
+                <h4 class="text-lg font-bold hover:text-blue-600 hover:underline">{comment["author name"]}</h4>
+                <p class="mt-1">{comment["body text"]}</p>
             </div>
         </div>
     </a>
 {/each}
-{#if current < comments.length}
+{#if current < comments.length && comments.length > 4}
     <button
         class="show"
         on:click={() => (current = comments.length)}
@@ -33,7 +33,7 @@
     >
         Show More
     </button>
-{:else}
+{:else if current >= comments.length && comments.length >4}
     <button
         class="show"
         on:click={() => (current = 4)}
