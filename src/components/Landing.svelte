@@ -107,7 +107,7 @@
                           id="search"
                           on:blur={(e)=>console.log(e)}
                           on:input={handleSuggest}
-                          placeholder="best movies to watch after ..."
+                          placeholder="best ..."
                           type="search"
                         >
                       </div>
