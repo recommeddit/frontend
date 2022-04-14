@@ -32,7 +32,7 @@
     <div class="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
       <div class="flex md:absolute md:left-0 md:inset-y-0 lg:static" on:click={goToLanding}>
         <div class="flex-shrink-0 flex items-center">
-          <a href="#">
+          <a href="/">
             <img
               alt="Workflow"
               class="block h-8 w-auto"
@@ -103,7 +103,7 @@
           in:fly={{ y: 100, duration: 1000 }}
         >
           <div class="flex gap-4">
-            <div class="w-12 h-12 bg-gray-700">
+            <div class="min-w-18 h-12 bg-gray-700">
               <p class="text-white text-xl font-thin text-center pt-2">
                 {recommendation.score.toFixed(1)}
               </p>
