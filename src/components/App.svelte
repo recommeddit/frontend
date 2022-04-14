@@ -3,6 +3,7 @@
   import Tailwindcss from "./Tailwindcss.svelte";
   import Landing from "./Landing.svelte";
   import SearchList from "./SearchList.svelte";
+  import to from "await-to-js";
 
   let isSearching = false;
   let isLoading = false;
@@ -19,7 +20,7 @@
       error = true;
       return;
     }
-    let parsedRes = res.json
+    const parsedRes = await res.json();
     // const parsedRes = {
     //   "success": true, "recommendations": [{
     //     "recommendation": "Emma Stone",
@@ -224,7 +225,7 @@
                                                               }) => {
       return {
         keyword: recommendation,
-        description: description?.articleBody,
+        description,
         score,
         imageUrls: images,
         comments: comments.map(comment => ({

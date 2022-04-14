@@ -23,6 +23,7 @@
   const goToLanding = () => {
     isSearching = false;
     console.log(isSearching);
+    location.reload();
   };
 
 </script>
@@ -42,7 +43,7 @@
         </div>
       </div>
       <div
-        class="min-w-0 px-0 pt-4 xl:col-span-2 text-2xl font-bold text-white hover:text-gray-300 pl-20 lg:pl-0 pb-3 lg:pb-0"
+        class="min-w-0 px-0 pt-4 cursor-pointer xl:col-span-2 text-2xl font-bold text-white hover:text-gray-300 pl-20 lg:pl-0 pb-3 lg:pb-0"
       >
         Recommeddit
       </div>
@@ -63,7 +64,7 @@
                   bind:value={query}
                   class="block w-full bg-white border border-gray-300 rounded-md py-2 pl-2 pr-3 text-sm placeholder-gray-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
                   id="search"
-                  placeholder="best movies to watch after ..."
+                  placeholder="best ..."
                   type="search"
                 />
               </div>
@@ -108,7 +109,7 @@
           in:fly={{ y: 100, duration: 1000 }}
         >
           <div class="flex gap-4">
-            <div class="min-w-18 h-12 bg-gray-700">
+            <div class="w-20 h-12 bg-gray-700">
               <p class="text-white text-xl font-thin text-center pt-2">
                 {recommendation.score.toFixed(1)}
               </p>
@@ -132,12 +133,12 @@
             class="carousel slide relative px-10 py-5"
             data-bs-ride="carousel"
           >
-            <div class="carousel-inner relative w-full overflow-hidden">x
+            <div class="carousel-inner relative w-full overflow-hidden">
               {#each recommendation.imageUrls as url,i}
                 <div class={`carousel-item ${i===0 ? "active" : ""} relative float-left w-full`}>
                   <img
                     src={url}
-                    class="block w-full max-h-[36rem]"
+                    class="block w-full max-h-[36rem] object-contain"
                     alt="Camera"
                   />
                 </div>
@@ -150,7 +151,7 @@
               data-bs-slide="prev"
             >
               <span
-                class="carousel-control-prev-icon inline-block bg-no-repeat"
+                class="back-arrow carousel-control-prev-icon inline-block bg-no-repeat"
                 aria-hidden="true"
               />
               <span class="visually-hidden">Previous</span>
@@ -162,7 +163,7 @@
               data-bs-slide="next"
             >
               <span
-                class="carousel-control-next-icon inline-block bg-no-repeat"
+                class="front-arrow carousel-control-next-icon inline-block bg-no-repeat"
                 aria-hidden="true"
               />
               <span class="visually-hidden">Next</span>
@@ -219,5 +220,17 @@
     .description {
         padding-left: 200px;
         padding-right: 200px;
+    }
+
+    .back-arrow {
+        background-color: #43454B;
+        background-image: none;
+        mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M11.354 1.646a.5.5 0 010 .708L5.707 8l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z'/%3E%3C/svg%3E")
+    }
+
+    .front-arrow {
+        background-color: #43454B;
+        background-image: none;
+        mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z'/%3E%3C/svg%3E")
     }
 </style>

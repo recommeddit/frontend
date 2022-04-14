@@ -24,25 +24,6 @@
     </div>
   </a>
 {/each}
-{#if current < comments.length && comments.length > 4}
-    <button
-        class="show"
-        on:click={() => (current = comments.length)}
-        id="loadmore"
-        type="button"
-    >
-        Show More
-    </button>
-{:else if current >= comments.length && comments.length >4}
-    <button
-        class="show"
-        on:click={() => (current = 4)}
-        id="loadmore"
-        type="button"
-    >
-        Show Less
-    </button>
-{/if}
 
 <style>
     .show {
