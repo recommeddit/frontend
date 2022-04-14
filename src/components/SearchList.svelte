@@ -3,6 +3,7 @@
 
   import { RingLoader } from "svelte-loading-spinners";
   import Comments from "./Comments.svelte";
+  import { createEventDispatcher } from "svelte";
 
   export let recommendations;
   export let isLoading;
@@ -10,8 +11,6 @@
   export let isSearching;
 
   console.log(`isLoading: ${isLoading}`);
-
-  import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
 
@@ -21,10 +20,10 @@
     dispatch("search", query);
   };
 
-  const goToLanding = () =>{
-    isSearching = false
-    console.log(isSearching)
-  }
+  const goToLanding = () => {
+    isSearching = false;
+    console.log(isSearching);
+  };
 
 </script>
 
@@ -111,7 +110,7 @@
             </div>
             <p class="text-2xl pt-1 pr-10">{recommendation.keyword}</p>
             <div class="border-black border-2 text-center text-2xl pl-5 pr-5 pt-1">
-              <a href="http://www.amazon.com" class="flex">
+              <a href="{recommendation.link}" class="flex" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-link"
                      viewBox="0 0 16 16">
                   <path
@@ -178,7 +177,7 @@
             type="button"
             data-bs-target={"#".concat(
               "",
-              recommendation.recommendation.split(" ").join("")
+              recommendation.keyword.split(" ").join("")
             )}
             data-bs-slide="prev"
           >
@@ -193,7 +192,7 @@
             type="button"
             data-bs-target={"#".concat(
               "",
-              recommendation.recommendation.split(" ").join("")
+              recommendation.keyword.split(" ").join("")
             )}
             data-bs-slide="next"
           >
@@ -217,11 +216,11 @@
             )}
           />
         </div>
-    {/each}
+      {/each}
     {:else}
-    <div class="spinner-item">
-      <RingLoader size="80" color="#5CE4E9" unit="px" duration="1s" />
-    </div>
+      <div class="spinner-item">
+        <RingLoader size="80" color="#5CE4E9" unit="px" duration="1s" />
+      </div>
     {/if}
   {/if}
 </div>
