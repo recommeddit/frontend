@@ -135,7 +135,7 @@
           >
             <div class="carousel-inner relative w-full overflow-hidden">
               {#each recommendation.imageUrls as url,i}
-                <div class={`carousel-item ${i===0 ? "active" : ""} relative float-left w-full`}>
+                <div class={`carousel-item ${i===0 ? "active" : ""} relative float-left w-full`} style='height: 81.5vh;'>
                   <img
                     src={url}
                     class="block w-full max-h-[36rem] object-contain"

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import noImage from '$lib/assets/no-image.jpg';
+
   import ModeSwitcher from "./ModeSwitcher.svelte";
   import Tailwindcss from "./Tailwindcss.svelte";
   import Landing from "./Landing.svelte";
@@ -24,7 +26,7 @@
     // const parsedRes = {
     //   "success": true, "recommendations": [{
     //     "recommendation": "Emma Stone",
-    //     "images": ["https://m.media-amazon.com/images/I/81jA+wxj55L._AC_SL1500_.jpg", "https://nationaltoday.com/wp-content/uploads/2020/04/unicorn-1-1.jpg", "https://cdn.shopify.com/s/files/1/1365/2497/products/Rainbow-unicorn-mask_1024x.png?v=1553633323", "https://images-na.ssl-images-amazon.com/images/I/513KLIb5CwL.jpg", "https://www.daysoftheyear.com/cdn-cgi/image/dpr=1%2Cf=auto%2Cfit=cover%2Cheight=675%2Cmetadata=none%2Conerror=redirect%2Cq=85%2Cwidth=1200/wp-content/uploads/unicorn-day-e1523293823642.jpg"],
+    //     "images": [],
     //     "score": 1125.0,
     //     "link": "https://www.sitepoint.com/url-parameters-jquery/",
     //     "description": {
@@ -227,7 +229,7 @@
         keyword: recommendation,
         description,
         score,
-        imageUrls: images,
+        imageUrls: images.length > 0 ? images : [noImage],
         comments: comments.map(comment => ({
           text: comment["body text"],
           score: comment.score,
