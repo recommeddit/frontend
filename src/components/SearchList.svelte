@@ -42,7 +42,7 @@
         </div>
       </div>
       <div
-        class="min-w-0 px-0 pt-4 xl:col-span-2 text-2xl font-bold text-white hover:text-gray-300"
+        class="min-w-0 px-0 pt-4 xl:col-span-2 text-2xl font-bold text-white hover:text-gray-300 pl-20 lg:pl-0 pb-3 lg:pb-0"
       >
         Recommeddit
       </div>
@@ -53,7 +53,7 @@
           on:submit|preventDefault={handleClick}
         >
           <div
-            class="flex items-center px-6 py-4 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0"
+            class="flex items-center px-6 py-4 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0 hidden lg:flex"
           >
             <div class="w-full">
               <label class="sr-only" for="search">Search</label>
@@ -68,7 +68,7 @@
                 />
               </div>
             </div>
-            <div class="mt-3 sm:mt-0 sm:ml-3">
+            <div class="mt-3 sm:mt-0 sm:ml-3 hidden lg:flex">
               <button
                 class="block w-full py-2 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
                 type="submit"
@@ -83,15 +83,20 @@
   </div>
 </header>
 
+<div class="text-2xl flex lg:hidden">
+  Sorry! Not available on mobile.
+</div>
+
 <div class="pl-40 pr-40 pt-10 grid grid-cols-1 gap-10">
+
   {#if error}
-    <div class="exc-item">
+    <div class="exc-item hidden lg:inline">
       <svg width="200" height="200" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M 500 0C 224 0 0 224 0 500C 0 776 224 1000 500 1000C 776 1000 1000 776 1000 500C 1000 224 776 0 500 0C 500 0 500 0 500 0M 500 25C 762 25 975 238 975 500C 975 762 762 975 500 975C 238 975 25 762 25 500C 25 238 238 25 500 25C 500 25 500 25 500 25 M 526 150C 576 150 602 175 601 224C 600 300 600 350 575 525C 570 560 560 575 525 575C 525 575 475 575 475 575C 440 575 430 560 425 525C 400 355 400 300 400 226C 400 175 425 150 475 150M 500 650C 527 650 552 661 571 679C 589 698 600 723 600 750C 600 805 555 850 500 850C 445 850 400 805 400 750C 400 723 411 698 429 679C 448 661 473 650 500 650C 500 650 500 650 500 650" />
       </svg>
     </div>
-    <div class="error-item text-center">
+    <div class="error-item text-center hidden lg:inline">
       <p>Sorry, our servers are currently overloaded!</p>
       <p>Please try again later</p>
     </div>
@@ -99,7 +104,7 @@
     {#if !isLoading}
       {#each recommendations as recommendation}
         <div
-          class="rounded overflow-hidden shadow-lg"
+          class="rounded overflow-hidden shadow-lg hidden lg:inline"
           in:fly={{ y: 100, duration: 1000 }}
         >
           <div class="flex gap-4">
