@@ -109,7 +109,7 @@
               </p>
             </div>
             <p class="text-2xl pt-1 pr-10">{recommendation.keyword}</p>
-            <div class="border-black border-2 text-center text-2xl pl-5 pr-5 pt-1">
+            <!--<div class="border-black border-2 text-center text-2xl pl-5 pr-5 pt-1">
               <a href="{recommendation.link}" class="flex" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-link"
                      viewBox="0 0 16 16">
@@ -120,10 +120,12 @@
                 </svg>
                 &nbsp; Check it out here!
               </a>
-            </div>
+            </div>-->
           </div>
           <div
-            class="border-black border-2 text-center text-2xl pl-5 pr-5 pt-1"
+            id={recommendation.keyword.split(" ").join("")}
+            class="carousel slide relative px-10 py-5"
+            data-bs-ride="carousel"
           >
             <div class="carousel-inner relative w-full overflow-hidden">x
               {#each recommendation.imageUrls as url,i}
@@ -172,49 +174,6 @@
           <div class="pl-10 pr-10 pb-8 grid grid-cols-2 gap-10">
             <Comments comments={recommendation.comments.sort((a, b) => (a.score < b.score) ? 1 : -1)} />
           </div>
-          <button
-            class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-            type="button"
-            data-bs-target={"#".concat(
-              "",
-              recommendation.keyword.split(" ").join("")
-            )}
-            data-bs-slide="prev"
-          >
-            <span
-              class="carousel-control-prev-icon inline-block bg-no-repeat"
-              aria-hidden="true"
-            />
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-            type="button"
-            data-bs-target={"#".concat(
-              "",
-              recommendation.keyword.split(" ").join("")
-            )}
-            data-bs-slide="next"
-          >
-            <span
-              class="carousel-control-next-icon inline-block bg-no-repeat"
-              aria-hidden="true"
-            />
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-        <div class="text-center pb-8 grid grid-cols-1 justify-center">
-          <p class="text-2xl">Description:</p>
-          <p class="description">
-            {recommendation.description}
-          </p>
-        </div>
-        <div class="pl-10 pr-10 pb-8 grid grid-cols-2 gap-10">
-          <Comments
-            comments={recommendation.comments.sort((a, b) =>
-              a.score < b.score ? 1 : -1
-            )}
-          />
         </div>
       {/each}
     {:else}
