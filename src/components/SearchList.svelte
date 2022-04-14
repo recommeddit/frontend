@@ -23,6 +23,7 @@
   const goToLanding = () => {
     isSearching = false;
     console.log(isSearching);
+    location.reload();
   };
 
 </script>
@@ -42,7 +43,8 @@
         </div>
       </div>
       <div
-        class="min-w-0 px-0 pt-4 xl:col-span-2 text-2xl font-bold text-white hover:text-gray-300"
+        class="min-w-0 px-0 pt-4 xl:col-span-2 text-2xl font-bold text-white hover:text-gray-300 cursor-pointer"
+        on:click={goToLanding}
       >
         Recommeddit
       </div>
